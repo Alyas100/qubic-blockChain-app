@@ -1,0 +1,208 @@
+# .gitignore for Node.js Application
+
+# 🚨 Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+
+# 🗄️ Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+
+# 🔧 IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.orig
+
+# 📦 Build output
+dist/
+build/
+.out/
+.next/
+.nuxt/
+.cache/
+.tmp/
+.temp/
+.serverless/
+.nextjs/
+.history/
+
+# 📊 Coverage directories
+coverage/
+.nyc_output/
+*.lcov
+
+# 🧪 Test output
+*.log
+logs/
+*.log.*
+*.pid
+
+# 📝 Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# 🔐 Security
+*.pem
+*.key
+*.crt
+*.csr
+
+# 🗃️ Database
+*.db
+*.sqlite
+*.sqlite3
+dump.rdb
+redis-stack/
+redis-data/
+
+# 🖼️ Uploads and user content
+uploads/
+public/uploads/
+tmp/
+temp/
+storage/
+
+# 📁 OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+._*
+
+# 📱 Mobile/Desktop apps
+*.ipa
+*.apk
+*.dmg
+*.exe
+*.app
+
+# 🔍 Debug files
+debug/
+*.debug
+
+# 🐳 Docker
+.dockerignore
+docker-compose.override.yml
+docker-data/
+
+# 🧪 Testing
+.nyc_output/
+.vscode-test/
+test-results/
+reports/
+
+# 🏗️ Framework specific
+
+## Next.js
+.next/
+out/
+
+## Nuxt.js
+.nuxt/
+.nitro/
+.output/
+
+## Gatsby
+.cache/
+public
+
+## Angular
+dist/
+browser/
+server/
+
+## Vue
+dist/
+
+## React
+build/
+
+## Svelte
+.svelte-kit/
+/build/
+
+# 📄 Temporary files
+*.tmp
+*.temp
+*~
+
+# 🔄 Backup files
+*.bak
+*.backup
+*.old
+
+# 📊 Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# 🎯 Misc
+.history/
+.sass-cache/
+connect.lock
+typings/
+*.tsbuildinfo
+
+# 🧹 Cleanup
+.DS_Store
+Thumbs.db
+
+# 🪄 Custom for your project
+# Add any project-specific files/folders here
+# e.g., config/local.json
+# e.g., data/ (if you have local data files)
+
+# 🚀 Deployment files
+.cpanel.yml
+.elasticbeanstalk/
+.ebextensions/
+.fly/
+.vercel/
+.netlify/
+.circleci/
+.travis.yml
+.gitlab-ci.yml
+.azure/
+.googlecloud/
+
+# 📦 Package managers
+# Remove the ones you're not using
+
+# npm
+package-lock.json
+.npmrc
+
+# yarn
+.yarn/
+.yarnrc
+yarn.lock
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# pnpm
+pnpm-lock.yaml
+.pnpm-store/
+
+# bun
+bun.lockb
