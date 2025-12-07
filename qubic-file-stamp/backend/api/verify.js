@@ -1,6 +1,5 @@
 // Verify a file's authenticity
 const crypto = require("crypto");
-const fs = require("fs");
 const stampModule = require("./stamp");
 
 module.exports = async (req, res) => {
@@ -9,8 +8,8 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: "No file uploaded" });
     }
 
-    // Read file and generate hash
-    const fileBuffer = fs.readFileSync(req.file.path);
+    // Read file from memory buffer (multer memoryStorage)
+    const fileBuffer = req.file.buffer;
     const fileHash = crypto
       .createHash("sha256")
       .update(fileBuffer)
@@ -19,8 +18,7 @@ module.exports = async (req, res) => {
     // Look up stamp in database
     const stampData = stampModule.stampDatabase.get(fileHash);
 
-    // Clean up uploaded file
-    fs.unlinkSync(req.file.path);
+    // No need to clean up file since it's in memory
 
     if (stampData) {
       res.json({

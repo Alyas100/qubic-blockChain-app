@@ -1,5 +1,9 @@
 # .gitignore for Node.js Application
 
+# 🔐 Environment variables and secrets
+.env
+WALLET-INFO.txt
+
 # 🚨 Dependencies
 node_modules/
 npm-debug.log*
@@ -206,3 +210,4 @@ pnpm-lock.yaml
 
 # bun
 bun.lockb
+.vercel

@@ -1,6 +1,5 @@
 // Upload and stamp a file
 const crypto = require("crypto");
-const fs = require("fs");
 
 // In-memory storage (replace with database in production)
 const stampDatabase = new Map();
@@ -11,8 +10,8 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: "No file uploaded" });
     }
 
-    // Read file and generate hash
-    const fileBuffer = fs.readFileSync(req.file.path);
+    // Read file from memory buffer (multer memoryStorage)
+    const fileBuffer = req.file.buffer;
     const fileHash = crypto
       .createHash("sha256")
       .update(fileBuffer)
@@ -23,9 +22,9 @@ module.exports = async (req, res) => {
     const timestamp = new Date().toISOString();
 
     // Generate stamp data
-    // call blockchain function
-    const iotaStamp = require("../blockchain/iota");
-    const txId = await iotaStamp.stampToBlockchain(
+    // call blockchain function (Polygon)
+    const polygonStamp = require("../blockchain/polygon");
+    const txId = await polygonStamp.stampToBlockchain(
       fileHash,
       req.body.owner || "Anonymous"
     );
@@ -43,8 +42,7 @@ module.exports = async (req, res) => {
     stampDatabase.set(stampId, stampData);
     stampDatabase.set(fileHash, stampData); // Also index by hash for verification
 
-    // Clean up uploaded file
-    fs.unlinkSync(req.file.path);
+    // No need to clean up file since it's in memory
 
     res.json({
       success: true,
